@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="OpenCart Suite">
+	<test name="Test_Login_OK">
+		<classes>
+			<class name="us.abstracta.opencart.tests.CorrectLoginTest">
+				<methods>
+					<include name="loginCorrect" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Test_Login_NOK">
+		<classes>
+			<class name="us.abstracta.opencart.tests.IncorrectLoginTest">
+				<methods>
+					<include name="loginCorrect" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Test_Search">
+		<classes>
+			<class name="us.abstracta.opencart.tests.SearchItemTest">
+				<methods>
+					<include name="searchItem" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Test_Add_To_Cart">
+		<classes>
+			<class name="us.abstracta.opencart.tests.AddItemToCartTest">
+				<methods>
+					<include name="addItemToCart" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Test_Add_To_WishList">
+		<classes>
+			<class name="us.abstracta.opencart.tests.AddItemToWishListTest">
+				<methods>
+					<include name="AddItemToWishList" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
