@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/openjdk:8-jdk
+      - image: circleci/openjdk:8-jdk-browsers-legacy
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -15,10 +15,6 @@ jobs:
       # - image: circleci/postgres:9.4
     dependencies:
       pre:
-        # get Firefox Release (43.0b5)
-        - pip install mozdownload mozinstall
-        - mozdownload --version latest --destination firefox.tar.bz2
-        - mozinstall firefox.tar.bz2
 
     working_directory: ~/repo
 
@@ -46,6 +42,15 @@ jobs:
 
       # add permisos
       - run: chmod 755 /home/circleci/repo/drivers/geckodriver
+
+      - run:
+          name: Install the latest firefox
+          command: |
+            sudo apt-get remove firefox-mozilla-build binutils &&
+            sudo sh -c "echo 'deb http://ftp.hr.debian.org/debian sid main' >> /etc/apt/sources.list" &&
+            sudo apt-get update &&
+            sudo apt-get install -t sid firefox &&
+            firefox --version
 
         # run tests!
       - run: mvn clean test -Dsuite="src/test/resources/testng/testng.xml"
