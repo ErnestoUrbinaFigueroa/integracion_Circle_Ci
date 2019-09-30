@@ -1,12 +1,11 @@
 package framework.tests;
 
+import framework.utils.GetProperties;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-
-import framework.utils.GetProperties;
 import us.abstracta.opencart.pages.HomePage;
 
 public abstract class BaseTest {
@@ -17,8 +16,8 @@ public abstract class BaseTest {
 
 	@BeforeTest
 	public void setUp() {
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		driver = new ChromeDriver();
+		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
+		driver = new FirefoxDriver();
 		driver.get(prop.getString("BASE_URL"));
 		driver.manage().window().maximize();
 
