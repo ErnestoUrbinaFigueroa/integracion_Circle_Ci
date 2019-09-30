@@ -45,7 +45,7 @@ jobs:
 
       # add permisos
       - run: chmod 755 /home/circleci/repo/drivers/geckodriver
-          -
+
           # run tests!
       - run: mvn clean test -Dsuite="src/test/resources/testng/testng.xml"
 
