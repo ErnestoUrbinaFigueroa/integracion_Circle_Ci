@@ -8,7 +8,7 @@
     <!-- Chrome_linux-->
     <!-- Firefox_windows-->
     <!-- Chrome_windows-->
-    <parameter name="DRIVER" value="Firefox_windows"/>
+    <parameter name="DRIVER" value="Firefox_linux"/>
 
     <test name="Test_Login_OK">
         <classes>
