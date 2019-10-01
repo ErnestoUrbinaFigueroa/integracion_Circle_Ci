@@ -4,6 +4,9 @@ import static org.testng.Assert.assertEquals;
 
 import java.lang.reflect.Method;
 
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Step;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -15,6 +18,8 @@ import us.abstracta.opencart.pages.SearchResult;
 public class AddItemToWishListTest extends BaseTest {
 
 	@Test(dataProvider = "dataProvider")
+	@Step("Agregar producto a la Lista de Deseos")
+	@Severity(SeverityLevel.BLOCKER)
 	public void AddItemToWishList(String user, String pass, String product) {
 		SearchResult searchResult;
 		AccountLogin loginPage;

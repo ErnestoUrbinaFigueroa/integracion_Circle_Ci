@@ -4,6 +4,9 @@ import static org.testng.Assert.assertEquals;
 
 import java.lang.reflect.Method;
 
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Step;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -14,6 +17,8 @@ import us.abstracta.opencart.pages.MyAccountPage;
 public class CorrectLoginTest extends BaseTest {
 
 	@Test(dataProvider = "LoginProvider")
+	@Step("Prueba de Login Correcto")
+	@Severity(SeverityLevel.NORMAL)
 	public void loginCorrect(String user, String password) {
 		AccountLogin loginPage;
 		MyAccountPage myAccountPage;
